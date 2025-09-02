@@ -41,39 +41,46 @@ This section will provide context about the team members and the team's backgrou
 List of current team members with placeholders for pictures and bios.
 
 #### Member 1
-- Name: [FILL IN: Full name]
-- Role: [FILL IN: Position, e.g., Team Captain, Member]
+- Name: Tarushv Kosgi
+- Role: Team Captain
 - Picture: [PLACEHOLDER: member1.jpg - to be imported later]
-- Bio: [FILL IN: Short biography, interests, achievements]
-- Contact: [FILL IN: Email or preferred contact method]
+- Bio: High school student at Independence High School, Ashburn, VA. Graduating 2026. Pursuing Cybersecurity Operations. CyberPatriot finalist. Competed in Lockheed Martin CYBERQUEST with Abhinav Boora and Saumit Ramagiri. Passionate about technology, AI, and innovation. Over 8 years of programming experience. Skills: HTML, CSS, Python, JavaScript, Swift, C, Command Line, PowerShell, GitHub, Xcode, VS Code. Certifications: IT Specialist - Networking, CPR/AED/First Aid. Projects: Assistive Glasses for Color Blindness, PlastiCan (Honorable Mention at Toshiba Exploravision).
+- Contact: tarushv.kosgi@outlook.com, +1 571 464 2121
 
 #### Member 2
-- Name: [FILL IN: Full name]
-- Role: [FILL IN: Position]
+- Name: Abhinav Boora
+- Role: Team Member
 - Picture: [PLACEHOLDER: member2.jpg - to be imported later]
-- Bio: [FILL IN: Short biography]
-- Contact: [FILL IN: Email]
+- Bio: High school student at Independence High School, Ashburn, VA. National Cyber Scholar. Competed in CyberPatriot and Lockheed Martin CYBERQUEST with Tarushv Kosgi and Saumit Ramagiri.
+- Contact: [FILL IN: Email or preferred contact method]
 
 #### Member 3
-- Name: [FILL IN: Full name]
-- Role: [FILL IN: Position]
+- Name: Dheeraj Chennaboina
+- Role: Team Member
 - Picture: [PLACEHOLDER: member3.jpg - to be imported later]
-- Bio: [FILL IN: Short biography]
-- Contact: [FILL IN: Email]
+- Bio: High school student at Independence High School, Ashburn, VA. National Cyber Scholar.
+- Contact: [FILL IN: Email or preferred contact method]
 
 #### Member 4
-- Name: [FILL IN: Full name]
-- Role: [FILL IN: Position]
+- Name: Jayden Netto
+- Role: Team Member
 - Picture: [PLACEHOLDER: member4.jpg - to be imported later]
-- Bio: [FILL IN: Short biography]
-- Contact: [FILL IN: Email]
+- Bio: High school student at Independence High School, Ashburn, VA. CyberPatriot finalist.
+- Contact: [FILL IN: Email or preferred contact method]
 
 #### Member 5
-- Name: [FILL IN: Full name]
-- Role: [FILL IN: Position]
+- Name: Saumit Ramagiri
+- Role: Team Member
 - Picture: [PLACEHOLDER: member5.jpg - to be imported later]
-- Bio: [FILL IN: Short biography]
-- Contact: [FILL IN: Email]
+- Bio: High school student at Independence High School, Ashburn, VA. National Cyber Scholar. Researcher at George Mason University. Intern at Virginia Tech Innovation Campus. Participates in TechDuels competitions. Competed in Lockheed Martin CYBERQUEST with Tarushv Kosgi and Abhinav Boora.
+- Contact: [FILL IN: Email or preferred contact method]
+
+#### Member 6
+- Name: Zach Imtiaz
+- Role: Team Member
+- Picture: [PLACEHOLDER: member6.jpg - to be imported later]
+- Bio: High school student at Independence High School, Ashburn, VA. CyberPatriot finalist. NVSHL All-Academic Honor recipient. Plays forward for the Independence High hockey team.
+- Contact: [FILL IN: Email or preferred contact method]
 
 [ADD MORE MEMBERS AS NEEDED]
 
