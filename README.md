@@ -157,7 +157,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Independence CyberPatriot Team**
 - Website: [indycp.github.io](https://indycp.github.io)
-- Email: team@indycp.com
+- Email: tarushv.kosgi@outlook.com
 - Location: Independence High School, Ashburn, VA
 
 **Team Captain**

@@ -18,7 +18,7 @@ This document outlines the layout and structure for the CyberPatriot team websit
 - Social media links: [FILL IN: Links to team's social media accounts]
 
 ### Footer
-- Copyright information: © 2025 [FILL IN: Team name]. All rights reserved.
+- Copyright information: © 2025 Independence CyberPatriot Team. All rights reserved.
 - Additional links: [FILL IN: Privacy policy, terms of service, etc.]
 
 ## Home Page Layout
@@ -99,9 +99,9 @@ List of current team members with placeholders for pictures and bios.
 - Tools: [FILL IN: Software or online tools for practice]
 
 ## Contact Section
-- Email: [FILL IN: Team email address]
+- Email: tarushv.kosgi@outlook.com
 - Social media: [FILL IN: Handles for Twitter, Instagram, etc.]
-- Meeting info: [FILL IN: When and where the team meets]
+- Meeting info: Mondays before school at Independence High School
 
 ## Design Notes
 - Color scheme: [FILL IN: Primary and secondary colors]
