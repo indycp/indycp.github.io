@@ -44,14 +44,14 @@ List of current team members with placeholders for pictures and bios.
 - Name: Tarushv Kosgi
 - Role: Team Captain
 - Picture: [PLACEHOLDER: member1.jpg - to be imported later]
-- Bio: High school student at Independence High School, Ashburn, VA. Graduating 2026. Pursuing Cybersecurity Operations. CyberPatriot finalist. Competed in Lockheed Martin CYBERQUEST with Abhinav Boora and Saumit Ramagiri. Passionate about technology, AI, and innovation. Over 8 years of programming experience. Skills: HTML, CSS, Python, JavaScript, Swift, C, Command Line, PowerShell, GitHub, Xcode, VS Code. Certifications: IT Specialist - Networking, CPR/AED/First Aid. Projects: Assistive Glasses for Color Blindness, PlastiCan (Honorable Mention at Toshiba Exploravision).
+- Bio: High school student at Independence High School, Ashburn, VA. Graduating 2026. Pursuing Cybersecurity Operations. **NCSF 2024 Finalist** - Recognized as one of the top cybersecurity students in Virginia, earning finalist status in the National Cyber Scholarship Foundation competition. CyberPatriot finalist. Competed in Lockheed Martin CYBERQUEST with Abhinav Boora and Saumit Ramagiri. Passionate about technology, AI, and innovation. Over 8 years of programming experience. Skills: HTML, CSS, Python, JavaScript, Swift, C, Command Line, PowerShell, GitHub, Xcode, VS Code. Certifications: IT Specialist - Networking, CPR/AED/First Aid. Projects: Assistive Glasses for Color Blindness, PlastiCan (Honorable Mention at Toshiba Exploravision).
 - Contact: tarushv.kosgi@outlook.com, +1 571 464 2121
 
 #### Member 2
 - Name: Abhinav Boora
 - Role: Team Member
 - Picture: [PLACEHOLDER: member2.jpg - to be imported later]
-- Bio: High school student at Independence High School, Ashburn, VA. National Cyber Scholar. Competed in CyberPatriot and Lockheed Martin CYBERQUEST with Tarushv Kosgi and Saumit Ramagiri.
+- Bio: High school student at Independence High School, Ashburn, VA. **NCSF 2024 Scholar** - Awarded National Cyber Scholar status, demonstrating exceptional cybersecurity knowledge and earning over $3,000 in educational benefits including access to the Cyber Foundations Academy. Competed in CyberPatriot and Lockheed Martin CYBERQUEST with Tarushv Kosgi and Saumit Ramagiri.
 - Contact: [FILL IN: Email or preferred contact method]
 
 #### Member 3
@@ -72,7 +72,7 @@ List of current team members with placeholders for pictures and bios.
 - Name: Zach Imtiaz
 - Role: Team Member
 - Picture: [PLACEHOLDER: member5.jpg - to be imported later]
-- Bio: High school student at Independence High School, Ashburn, VA. CyberPatriot finalist. NVSHL All-Academic Honor recipient. Plays forward for the Independence High hockey team.
+- Bio: High school student at Independence High School, Ashburn, VA. **NCSF 2024 Finalist** - Achieved finalist recognition in the National Cyber Scholarship Foundation program, showcasing advanced skills in cybersecurity and earning digital finalist credentials. CyberPatriot finalist. NVSHL All-Academic Honor recipient. Plays forward for the Independence High hockey team.
 - Contact: [FILL IN: Email or preferred contact method]
 
 [ADD MORE MEMBERS AS NEEDED]
