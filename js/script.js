@@ -1,6 +1,11 @@
 // Simple JS for animations and interactions
 
 document.addEventListener('DOMContentLoaded', function() {
+    const cursor = document.querySelector('.cursor');
+    window.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+    });
     // Smooth scrolling for nav links
     const navLinks = document.querySelectorAll('nav a[href^="#"]');
     navLinks.forEach(link => {

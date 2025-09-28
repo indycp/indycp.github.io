@@ -14,6 +14,22 @@ body {
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    filter: contrast(20);
+}
+
+.nav-container {
+    filter: blur(10px);
+}
+
+.cursor {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    background: white;
+    border-radius: 50%;
+    z-index: 999;
+    pointer-events: none;
+    mix-blend-mode: screen;
 }
 
 .container {
