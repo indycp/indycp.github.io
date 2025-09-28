@@ -1,75 +1,137 @@
 // Simple JS for animations and interactions
 
 document.addEventListener('DOMContentLoaded', function() {
-    const liquidCursor = document.querySelector('.liquid-cursor');
+    const liquidGlassBlob = document.querySelector('.liquid-glass-blob');
     const liquidElements = document.querySelectorAll('.liquid-element');
     const navContainer = document.querySelector('.nav-container');
     
-    let mouseX = 0;
-    let mouseY = 0;
-    let cursorX = 0;
-    let cursorY = 0;
+    let currentElement = null;
+    let isTransitioning = false;
     
-    // Enhanced cursor movement with smooth interpolation
-    window.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
+    // Enhanced liquid glass blob behavior
+    function moveBlob(targetElement) {
+        if (!targetElement || isTransitioning) return;
         
-        // Show cursor when moving
-        liquidCursor.style.opacity = '1';
+        isTransitioning = true;
         
-        // Enhanced effect when near header
-        const header = document.querySelector('header');
-        const headerRect = header.getBoundingClientRect();
-        const distanceToHeader = Math.min(
-            Math.abs(mouseY - headerRect.top),
-            Math.abs(mouseY - headerRect.bottom)
-        );
-        
-        if (distanceToHeader < 100) {
-            liquidCursor.style.transform = `scale(${1.5 - distanceToHeader / 200})`;
-            liquidCursor.style.filter = `blur(${15 + distanceToHeader / 5}px)`;
-            navContainer.style.filter = `blur(${0.5 + (100 - distanceToHeader) / 100}px)`;
-        } else {
-            liquidCursor.style.transform = 'scale(1)';
-            liquidCursor.style.filter = 'blur(20px)';
-            navContainer.style.filter = 'blur(1px)';
+        // Remove magnified class from previous element
+        if (currentElement) {
+            currentElement.classList.remove('magnified');
         }
-    });
-    
-    // Smooth cursor animation
-    function updateCursor() {
-        cursorX += (mouseX - cursorX) * 0.1;
-        cursorY += (mouseY - cursorY) * 0.1;
         
-        liquidCursor.style.left = (cursorX - 40) + 'px';
-        liquidCursor.style.top = (cursorY - 40) + 'px';
+        const rect = targetElement.getBoundingClientRect();
+        const containerRect = navContainer.getBoundingClientRect();
         
-        requestAnimationFrame(updateCursor);
+        // Calculate position relative to nav container
+        const targetX = rect.left - containerRect.left + (rect.width / 2) - 60;
+        const targetY = rect.top - containerRect.top + (rect.height / 2) - 30;
+        
+        // Add stretching animation if moving from another element
+        if (currentElement && liquidGlassBlob.classList.contains('active')) {
+            liquidGlassBlob.classList.add('stretching');
+            
+            // Calculate stretch direction and distance
+            const currentRect = currentElement.getBoundingClientRect();
+            const distance = Math.abs(rect.left - currentRect.left);
+            const stretchWidth = Math.min(200, 120 + distance * 0.5);
+            
+            liquidGlassBlob.style.width = stretchWidth + 'px';
+            liquidGlassBlob.style.left = targetX + 'px';
+            liquidGlassBlob.style.top = targetY + 'px';
+            
+            // After stretch animation, return to normal size
+            setTimeout(() => {
+                liquidGlassBlob.classList.remove('stretching');
+                liquidGlassBlob.style.width = '120px';
+                isTransitioning = false;
+            }, 400);
+        } else {
+            // First time activation or no stretching needed
+            liquidGlassBlob.style.left = targetX + 'px';
+            liquidGlassBlob.style.top = targetY + 'px';
+            liquidGlassBlob.classList.add('active');
+            
+            setTimeout(() => {
+                isTransitioning = false;
+            }, 600);
+        }
+        
+        // Add magnified effect to current element
+        targetElement.classList.add('magnified');
+        currentElement = targetElement;
     }
-    updateCursor();
     
-    // Hide cursor when not moving
-    let cursorTimeout;
-    window.addEventListener('mousemove', () => {
-        clearTimeout(cursorTimeout);
-        cursorTimeout = setTimeout(() => {
-            liquidCursor.style.opacity = '0';
-        }, 2000);
-    });
+    function hideBlob() {
+        if (!isTransitioning) {
+            liquidGlassBlob.classList.remove('active', 'stretching');
+            if (currentElement) {
+                currentElement.classList.remove('magnified');
+                currentElement = null;
+            }
+            liquidGlassBlob.style.width = '120px';
+        }
+    }
     
-    // Enhanced liquid element interactions
+    // Add hover listeners to all liquid elements
     liquidElements.forEach(element => {
         element.addEventListener('mouseenter', () => {
-            element.style.filter = 'blur(0px) brightness(1.2) saturate(1.3)';
-            element.style.transform = 'scale(1.1) translateY(-2px)';
+            moveBlob(element);
+        });
+        
+        // Enhanced hover effects for non-blob interactions
+        element.addEventListener('mouseenter', () => {
+            element.style.transition = 'all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
         });
         
         element.addEventListener('mouseleave', () => {
-            element.style.filter = '';
-            element.style.transform = '';
+            element.style.transition = 'all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
         });
     });
+    
+    // Hide blob when leaving nav area
+    navContainer.addEventListener('mouseleave', () => {
+        setTimeout(() => {
+            hideBlob();
+        }, 200);
+    });
+    
+    // Enhanced cursor behavior (keeping the existing cursor but making it more subtle)
+    const liquidCursor = document.querySelector('.liquid-cursor');
+    if (liquidCursor) {
+        let mouseX = 0;
+        let mouseY = 0;
+        let cursorX = 0;
+        let cursorY = 0;
+        
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            liquidCursor.style.opacity = '0.3'; // More subtle
+        });
+        
+        function updateCursor() {
+            cursorX += (mouseX - cursorX) * 0.08; // Slower for smoother feel
+            cursorY += (mouseY - cursorY) * 0.08;
+            
+            if (liquidCursor) {
+                liquidCursor.style.left = (cursorX - 40) + 'px';
+                liquidCursor.style.top = (cursorY - 40) + 'px';
+            }
+            
+            requestAnimationFrame(updateCursor);
+        }
+        updateCursor();
+        
+        let cursorTimeout;
+        window.addEventListener('mousemove', () => {
+            clearTimeout(cursorTimeout);
+            cursorTimeout = setTimeout(() => {
+                if (liquidCursor) {
+                    liquidCursor.style.opacity = '0';
+                }
+            }, 1500);
+        });
+    }
     
     // Smooth scrolling for nav links
     const navLinks = document.querySelectorAll('nav a[href^="#"]');

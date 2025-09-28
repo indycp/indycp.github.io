@@ -14,7 +14,6 @@ body {
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    filter: contrast(30);
     overflow-x: hidden;
 }
 
@@ -68,53 +67,108 @@ body {
     75% { transform: translateY(50px) translateX(30px) rotate(270deg); }
 }
 
+/* Liquid Glass Blob for Menu */
 .nav-container {
-    filter: blur(1px);
     position: relative;
+    overflow: visible;
 }
 
-.liquid-cursor {
-    position: fixed;
-    width: 80px;
-    height: 80px;
-    background: radial-gradient(circle, rgba(0, 122, 255, 0.8) 0%, rgba(88, 86, 214, 0.6) 50%, transparent 70%);
-    border-radius: 50%;
-    z-index: 998;
-    pointer-events: none;
-    mix-blend-mode: multiply;
-    filter: blur(20px);
-    transition: all 0.1s ease-out;
+.liquid-glass-blob {
+    position: absolute;
+    width: 120px;
+    height: 60px;
+    background: radial-gradient(ellipse at center, 
+        rgba(255, 255, 255, 0.9) 0%,
+        rgba(255, 255, 255, 0.7) 30%,
+        rgba(0, 122, 255, 0.1) 70%,
+        transparent 100%);
+    border-radius: 50px;
+    backdrop-filter: blur(15px) brightness(1.3) contrast(1.2);
+    -webkit-backdrop-filter: blur(15px) brightness(1.3) contrast(1.2);
+    box-shadow: 
+        inset 0 1px 0 rgba(255, 255, 255, 0.8),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1),
+        0 4px 20px rgba(0, 122, 255, 0.3),
+        0 1px 3px rgba(0, 0, 0, 0.1);
     opacity: 0;
+    transform: scale(0.8) translateY(10px);
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    pointer-events: none;
+    z-index: 10;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.liquid-glass-blob::before {
+    content: '';
+    position: absolute;
+    top: 15%;
+    left: 20%;
+    width: 25px;
+    height: 25px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(1px);
+}
+
+.liquid-glass-blob::after {
+    content: '';
+    position: absolute;
+    top: 60%;
+    right: 30%;
+    width: 15px;
+    height: 15px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(0.5px);
+}
+
+.liquid-glass-blob.active {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+.liquid-glass-blob.stretching {
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border-radius: 60px 30px;
+    width: 150px;
+}
+
+.nav-links {
+    position: relative;
+    z-index: 5;
 }
 
 .liquid-element {
     position: relative;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 15;
 }
 
-.liquid-element:hover {
-    filter: blur(0.5px) brightness(1.1);
-    transform: scale(1.05);
+.liquid-element.magnified {
+    transform: scale(1.1) translateY(-2px);
+    filter: brightness(1.2) saturate(1.3);
+    text-shadow: 0 0 20px rgba(0, 122, 255, 0.3);
+    font-weight: 600;
 }
 
+/* Refraction effect for text under the blob */
 .liquid-element::before {
-    content: '';
+    content: attr(data-text);
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: radial-gradient(circle, rgba(0, 122, 255, 0.3) 0%, transparent 70%);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: all 0.4s ease-out;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    filter: blur(1px) brightness(1.5) saturate(1.5);
+    transform: scale(1.05);
+    transition: opacity 0.3s ease;
     z-index: -1;
-    filter: blur(10px);
+    color: inherit;
 }
 
-.liquid-element:hover::before {
-    width: 150px;
-    height: 150px;
+.liquid-element.magnified::before {
+    opacity: 0.7;
 }
 
 .container {
@@ -132,7 +186,7 @@ header {
     width: 100%;
     top: 0;
     z-index: 1000;
-    transition: all 0.3s ease;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 header:hover {
@@ -140,6 +194,7 @@ header:hover {
     backdrop-filter: blur(60px) saturate(200%);
     -webkit-backdrop-filter: blur(60px) saturate(200%);
     border-bottom: 1px solid rgba(0, 122, 255, 0.2);
+    transform: translateY(-1px);
 }
 
 nav {
@@ -244,7 +299,7 @@ nav {
     font-size: 16px;
     border: 2px solid rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(20px) saturate(180%);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     position: relative;
     z-index: 1;
     overflow: hidden;
@@ -257,20 +312,25 @@ nav {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.6s ease;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 .btn:hover {
     background: rgba(255, 255, 255, 0.25);
     border-color: rgba(255, 255, 255, 0.4);
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 15px 35px rgba(0, 122, 255, 0.3);
+    transform: translateY(-6px) scale(1.08);
+    box-shadow: 0 20px 50px rgba(0, 122, 255, 0.4);
     backdrop-filter: blur(30px) saturate(200%);
 }
 
 .btn:hover::before {
     left: 100%;
+}
+
+.btn:active {
+    transform: translateY(-3px) scale(1.05);
+    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 section {
@@ -304,9 +364,10 @@ h2 {
     box-shadow: 0 8px 32px rgba(0, 122, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(20px) saturate(180%);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     position: relative;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .card::before {
@@ -318,7 +379,8 @@ h2 {
     height: 4px;
     background: linear-gradient(90deg, #007aff, #5856d6, #30d158);
     opacity: 0;
-    transition: all 0.4s ease;
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transform: translateX(-100%);
 }
 
 .card::after {
@@ -328,25 +390,33 @@ h2 {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(0, 122, 255, 0.05) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(0, 122, 255, 0.08) 0%, transparent 70%);
     opacity: 0;
-    transition: all 0.6s ease;
+    transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     pointer-events: none;
+    transform: scale(0.8);
 }
 
 .card:hover {
-    transform: translateY(-12px) scale(1.02);
-    box-shadow: 0 20px 60px rgba(0, 122, 255, 0.2);
+    transform: translateY(-20px) scale(1.03) rotateY(2deg);
+    box-shadow: 0 30px 80px rgba(0, 122, 255, 0.25);
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(40px) saturate(200%);
 }
 
 .card:hover::before {
     opacity: 1;
+    transform: translateX(0);
 }
 
 .card:hover::after {
     opacity: 1;
+    transform: scale(1);
+}
+
+.card:active {
+    transform: translateY(-15px) scale(1.01);
+    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 .card h3 {
