@@ -62,23 +62,16 @@ List of current team members with placeholders for pictures and bios.
 - Contact: [FILL IN: Email or preferred contact method]
 
 #### Member 4
-- Name: Jayden Netto
-- Role: Team Member
-- Picture: [PLACEHOLDER: member4.jpg - to be imported later]
-- Bio: High school student at Independence High School, Ashburn, VA. CyberPatriot finalist.
-- Contact: [FILL IN: Email or preferred contact method]
-
-#### Member 5
 - Name: Saumit Ramagiri
 - Role: Team Member
-- Picture: [PLACEHOLDER: member5.jpg - to be imported later]
+- Picture: [PLACEHOLDER: member4.jpg - to be imported later]
 - Bio: High school student at Independence High School, Ashburn, VA. National Cyber Scholar. Researcher at George Mason University. Intern at Virginia Tech Innovation Campus. Participates in TechDuels competitions. Competed in Lockheed Martin CYBERQUEST with Tarushv Kosgi and Abhinav Boora.
 - Contact: [FILL IN: Email or preferred contact method]
 
-#### Member 6
+#### Member 5
 - Name: Zach Imtiaz
 - Role: Team Member
-- Picture: [PLACEHOLDER: member6.jpg - to be imported later]
+- Picture: [PLACEHOLDER: member5.jpg - to be imported later]
 - Bio: High school student at Independence High School, Ashburn, VA. CyberPatriot finalist. NVSHL All-Academic Honor recipient. Plays forward for the Independence High hockey team.
 - Contact: [FILL IN: Email or preferred contact method]
 
